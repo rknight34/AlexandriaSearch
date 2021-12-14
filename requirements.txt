@@ -1,0 +1,4 @@
+spacy==3.2.1
+PySimpleGUI==4.55.1
+pdfplumber==0.5.28
+numpy==1.21.4

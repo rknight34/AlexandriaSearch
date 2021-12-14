@@ -3,6 +3,10 @@ import time
 import pickle
 import PySimpleGUI as sg
 
+# requires following in terminal
+# python -m spacy download en_core_web_sm
+
+
 # My Modules
 from log import addLog
 from Alexandria import Document, DocumentCollection
