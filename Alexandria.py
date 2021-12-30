@@ -4,6 +4,7 @@ import numpy as np
 import math
 from log import addLog
 
+#This is a test comment to check Git functionality
 
 class Document:
     """myArray - rows are unique words, columns are 'documents'"""
