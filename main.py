@@ -4,12 +4,12 @@ import pickle
 import PySimpleGUI as sg
 
 # requires following in terminal
-# python -m spacy download en_core_web_sm
+# python -m spacy download en_core_web_lg
 
 
 # My Modules
-from log import addLog
-from Alexandria import Document, DocumentCollection
+#from log import addLog
+#from Alexandria import Document, DocumentCollection
 from Util import *
 
 
@@ -43,16 +43,16 @@ if __name__ == '__main__':
     #processDocs(nlp)
 
     # need to update the library and save it to pickle file for later access
-    #library = createLibrary()
-    #libraryFile = open('library_pickled', 'wb')
-    #pickle.dump(library, libraryFile)
-    #libraryFile.close()
+    # library = createLibrary()
+    # libraryFile = open('library_pickled', 'wb')
+    # pickle.dump(library, libraryFile)
+    # libraryFile.close()
 
     #load 'library' object from pickled file for speed of setup
     file = open('library_pickled', 'rb')
     library = pickle.load(file)
     file.close()
-
+    print (library.__module__)
     #some diagnostic functions
     print ("Number of unique words in document library: ", len(library.masterDict))
 

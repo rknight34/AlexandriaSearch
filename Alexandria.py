@@ -80,6 +80,7 @@ class Document:
             self.TFIDFArray[x,:] *= math.log(len(columnSum)/rows[x])
 
     def search(self,listWords):
+        """listWords must be pre-processed by NLP to lemmatised words list """
         addLog("Search conducted within Document", str(listWords))
 
         row = np.zeros((self.numPages,))
