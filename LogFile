@@ -1,0 +1,57 @@
+2021-12-14 14:45:58.682711    [Search Conducted]    flying passenger
+2021-12-14 14:45:58.733684    [Search conducted]    ['fly', 'passenger']
+2021-12-14 14:45:58.733684    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 14:45:58.747668    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:17:43.456856    [Search Conducted]    flying passenger
+2021-12-14 16:17:43.522977    [Search conducted]    ['fly', 'passenger']
+2021-12-14 16:17:43.522977    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:17:43.524243    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:19:20.583899    [Search Conducted]    flying passenger
+2021-12-14 16:19:20.630873    [Search conducted]    ['fly', 'passenger']
+2021-12-14 16:19:20.631625    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:19:20.632926    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:34:53.853048    [Search Conducted]    flying passengers
+2021-12-14 16:34:53.886739    [Search conducted]    ['fly', 'passenger']
+2021-12-14 16:34:53.886739    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:34:53.886739    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:35:28.771114    [Search Conducted]    flying passengers
+2021-12-14 16:35:28.772770    [Search conducted]    ['fly', 'passenger']
+2021-12-14 16:35:28.772770    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:35:28.772770    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-14 16:38:01.414936    [Search Conducted]    passengers
+2021-12-14 16:38:01.430807    [Search conducted]    ['passenger']
+2021-12-14 16:38:01.430807    [Search conducted within Document]    ['passenger']
+2021-12-14 16:38:01.430807    [Search conducted within Document]    ['passenger']
+2021-12-14 16:38:18.604049    [Search Conducted]    passengers
+2021-12-14 16:38:18.605470    [Search conducted]    ['passenger']
+2021-12-14 16:38:18.605470    [Search conducted within Document]    ['passenger']
+2021-12-14 16:38:18.605470    [Search conducted within Document]    ['passenger']
+2021-12-14 16:39:57.707995    [Search Conducted]    passengers
+2021-12-14 16:39:57.710864    [Search conducted]    ['passenger']
+2021-12-14 16:39:57.710864    [Search conducted within Document]    ['passenger']
+2021-12-14 16:39:57.716278    [Search conducted within Document]    ['passenger']
+2021-12-26 17:24:22.916206    [Search Conducted]    passengers
+2021-12-26 17:24:22.978954    [Search conducted]    ['passenger']
+2021-12-26 17:24:22.994489    [Search conducted within Document]    ['passenger']
+2021-12-26 17:24:22.994489    [Search conducted within Document]    ['passenger']
+2021-12-26 17:44:18.125827    [Search Conducted]    passengers flying
+2021-12-26 17:44:18.134867    [Search conducted]    ['passenger', 'fly']
+2021-12-26 17:44:18.134867    [Search conducted within Document]    ['passenger', 'fly']
+2021-12-26 17:44:18.134867    [Search conducted within Document]    ['passenger', 'fly']
+2021-12-26 17:44:39.092133    [Search Conducted]    weapons carriage
+2021-12-26 17:44:39.108155    [Search conducted]    ['weapon', 'carriage']
+2021-12-26 17:44:39.108155    [Search conducted within Document]    ['weapon', 'carriage']
+2021-12-26 17:44:39.108155    [Search conducted within Document]    ['weapon', 'carriage']
+2021-12-26 17:44:39.108155    [Search Word not found in document]    weapon
+2021-12-26 17:45:04.685503    [Search Conducted]    tool control
+2021-12-26 17:45:04.695031    [Search conducted]    ['tool', 'control']
+2021-12-26 17:45:04.695031    [Search conducted within Document]    ['tool', 'control']
+2021-12-26 17:45:04.695031    [Search Word not found in document]    tool
+2021-12-26 17:45:04.695031    [Search conducted within Document]    ['tool', 'control']
+2021-12-26 17:45:04.695031    [Search Word not found in document]    tool
+2021-12-26 17:45:06.580473    [Search Conducted]    tool control
+2021-12-26 17:45:06.591982    [Search conducted]    ['tool', 'control']
+2021-12-26 17:45:06.596493    [Search conducted within Document]    ['tool', 'control']
+2021-12-26 17:45:06.596493    [Search Word not found in document]    tool
+2021-12-26 17:45:06.596493    [Search conducted within Document]    ['tool', 'control']
+2021-12-26 17:45:06.596493    [Search Word not found in document]    tool
