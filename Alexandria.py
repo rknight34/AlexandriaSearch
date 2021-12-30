@@ -4,6 +4,7 @@ import numpy as np
 import math
 from log import addLog
 
+# This is a change on the master branch
 
 class Document:
     """myArray - rows are unique words, columns are 'documents'"""
