@@ -124,7 +124,7 @@ class DocumentCollection:
     def addDoc(self,doc):
         self.myDocs.append(doc)
 
-        # reqeusts dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
+        # requests dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
         tempDict = doc.getWordFreqTotalPairs()
         tempList = []
         for i in range(len(self.masterDict)):
