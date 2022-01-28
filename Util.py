@@ -3,6 +3,9 @@ import pdfplumber
 import re
 import os
 import json
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
+
 
 #my modules
 from log import addLog
@@ -157,3 +160,11 @@ def processInput(text, nlp):
         searchWords.append(token.lemma_.lower())
 
     return searchWords
+
+def displayWordcloud(text):
+    wordcloud = WordCloud(width=3000, height=2000, random_state=1,
+                          collocations=False).generate(text)
+
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    plt.show()

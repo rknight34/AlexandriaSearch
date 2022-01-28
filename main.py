@@ -3,6 +3,7 @@ import time
 import pickle
 import PySimpleGUI as sg
 
+
 # requires following in terminal
 # python -m spacy download en_core_web_lg
 
@@ -18,9 +19,9 @@ def setupGUI():
 
     layout = [[sg.Text("Search Terms")],
               [sg.Input(key='-INPUT-')],
-              [sg.Text(size=(60, 1), key='-OUTPUT1-'),sg.Button('OPEN FILE', key='_Open1_'),sg.Button('OPEN SIMILAR', key='_OpenSim1_')],
-              [sg.Text(size=(60, 1), key='-OUTPUT2-'),sg.Button('OPEN FILE', key='_Open2_'),sg.Button('OPEN SIMILAR', key='_OpenSim2_')],
-              [sg.Button('SEARCH', key='_Search_'), sg.Button('Quit'), sg.Button('Process Documents',key='_Process_')]]
+              [sg.Text(size=(60, 1), key='-OUTPUT1-'),sg.Button('OPEN FILE', key='_Open1_'),sg.Button('OPEN SIMILAR', key='_OpenSim1_'),sg.Button('WORD CLOUD', key='_Wordcloud1_')],
+              [sg.Text(size=(60, 1), key='-OUTPUT2-'),sg.Button('OPEN FILE', key='_Open2_'),sg.Button('OPEN SIMILAR', key='_OpenSim2_'),sg.Button('WORD CLOUD', key='_Wordcloud2_')],
+              [sg.Button('SEARCH', key='_Search_', bind_return_key=True), sg.Button('Quit'), sg.Button('Process Documents',key='_Process_')]]
 
     # Create the window
     window = sg.Window('Search in Docs', layout)
@@ -55,6 +56,7 @@ if __name__ == '__main__':
     print (library.__module__)
     #some diagnostic functions
     print ("Number of unique words in document library: ", len(library.masterDict))
+
 
 
     #setup GUI and return handle for event loop below
@@ -118,6 +120,14 @@ if __name__ == '__main__':
             if result2 != None:
                 similarDoc2 = library.myDocs[library.getSimilarList(result2)[0][0]]
                 os.startfile("C:/Users/Hp/PycharmProjects/AlexandriaDocuments/TestDocs/" + str(similarDoc2.myName) +".pdf")
+
+        if event == '_Wordcloud1_':
+            if result1 != None:
+                displayWordcloud(doc1.returnTextStringOfUniqueWordsFrequency())
+
+        if event == '_Wordcloud2_':
+            if result2 != None:
+                displayWordcloud(doc2.returnTextStringOfUniqueWordsFrequency())
 
         if event == '_Process_':
             #take all documents in 'TestDocs' and pre-process into 'Processed' folder

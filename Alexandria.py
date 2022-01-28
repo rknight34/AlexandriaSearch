@@ -4,8 +4,6 @@ import numpy as np
 import math
 from log import addLog
 
-#This is a test comment to check Git functionality
-# This is a change on the master branch
 
 class Document:
     """myArray - rows are unique words, columns are 'documents'"""
@@ -101,6 +99,16 @@ class Document:
         sortedRow = sorted(sortedRow, key=lambda i: i[1])
 
         return sortedRow
+
+    def returnTextStringOfUniqueWordsFrequency(self):
+
+        text = ""
+        dict = self.getWordFreqTotalPairs()
+        for word in dict:
+
+            text = text + ' '.join([word] * int(dict[word])) + ' '
+
+        return text
 
 
 class DocumentCollection:
