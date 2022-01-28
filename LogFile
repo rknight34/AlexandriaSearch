@@ -55,3 +55,136 @@
 2021-12-26 17:45:06.596493    [Search Word not found in document]    tool
 2021-12-26 17:45:06.596493    [Search conducted within Document]    ['tool', 'control']
 2021-12-26 17:45:06.596493    [Search Word not found in document]    tool
+2021-12-30 16:51:28.563962    [Search Conducted]    flying pasengers
+2021-12-30 16:51:28.626881    [Search conducted]    ['fly', 'pasenger']
+2021-12-30 16:51:28.626881    [Search Word not found]    pasenger
+2021-12-30 16:51:28.626881    [Search conducted within Document]    ['fly', 'pasenger']
+2021-12-30 16:51:28.626881    [Search Word not found in document]    pasenger
+2021-12-30 16:51:28.626881    [Search conducted within Document]    ['fly', 'pasenger']
+2021-12-30 16:51:28.626881    [Search Word not found in document]    pasenger
+2021-12-30 16:51:38.005612    [Search Conducted]    flying passengers
+2021-12-30 16:51:38.021277    [Search conducted]    ['fly', 'passenger']
+2021-12-30 16:51:38.021277    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-30 16:51:38.021277    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-30 16:52:17.339979    [Search Conducted]    foreign
+2021-12-30 16:52:17.344510    [Search conducted]    ['foreign']
+2021-12-30 16:52:17.344510    [Search conducted within Document]    ['foreign']
+2021-12-30 16:52:17.344510    [Search conducted within Document]    ['foreign']
+2021-12-30 16:53:39.300628    [Search Conducted]    foreign display
+2021-12-30 16:53:39.307173    [Search conducted]    ['foreign', 'display']
+2021-12-30 16:53:39.307173    [Search conducted within Document]    ['foreign', 'display']
+2021-12-30 16:53:39.307173    [Search conducted within Document]    ['foreign', 'display']
+2021-12-30 16:53:39.307173    [Search Word not found in document]    foreign
+2021-12-30 16:53:50.954528    [Search Conducted]    loose articles
+2021-12-30 16:53:50.970182    [Search conducted]    ['loose', 'article']
+2021-12-30 16:53:50.970182    [Search conducted within Document]    ['loose', 'article']
+2021-12-30 16:53:50.970182    [Search conducted within Document]    ['loose', 'article']
+2021-12-30 16:54:18.727744    [Search Conducted]    intercontinental
+2021-12-30 16:54:18.738754    [Search conducted]    ['intercontinental']
+2021-12-30 16:54:18.738754    [Search Word not found]    intercontinental
+2021-12-30 16:54:18.738754    [Search conducted within Document]    ['intercontinental']
+2021-12-30 16:54:18.738754    [Search Word not found in document]    intercontinental
+2021-12-30 16:55:00.516362    [Search Conducted]    intercontinental aircraft
+2021-12-30 16:55:00.531916    [Search conducted]    ['intercontinental', 'aircraft']
+2021-12-30 16:55:00.531916    [Search Word not found]    intercontinental
+2021-12-30 16:55:00.531916    [Search conducted within Document]    ['intercontinental', 'aircraft']
+2021-12-30 16:55:00.531916    [Search Word not found in document]    intercontinental
+2021-12-30 16:55:00.531916    [Search conducted within Document]    ['intercontinental', 'aircraft']
+2021-12-30 16:55:00.531916    [Search Word not found in document]    intercontinental
+2021-12-30 23:23:33.316395    [Search Conducted]    40000
+2021-12-30 23:23:33.329680    [Search conducted]    ['40000']
+2021-12-30 23:23:33.329680    [Search Word not found]    40000
+2021-12-30 23:23:33.334384    [Search conducted within Document]    ['40000']
+2021-12-30 23:23:33.335479    [Search Word not found in document]    40000
+2021-12-30 23:37:48.861425    [Search Conducted]    40000
+2021-12-30 23:37:48.898886    [Search conducted]    ['40000']
+2021-12-30 23:37:48.898886    [Search Word not found]    40000
+2021-12-30 23:37:48.904496    [Search conducted within Document]    ['40000']
+2021-12-30 23:37:48.905493    [Search Word not found in document]    40000
+2021-12-30 23:41:54.784123    [Search Conducted]    40000
+2021-12-30 23:41:54.790408    [Search conducted]    ['40000']
+2021-12-30 23:41:54.797705    [Search Word not found]    40000
+2021-12-30 23:41:54.797705    [Search conducted within Document]    ['40000']
+2021-12-30 23:41:54.798700    [Search Word not found in document]    40000
+2021-12-30 23:42:19.209099    [Search Conducted]    40000
+2021-12-30 23:42:19.212996    [Search conducted]    ['40000']
+2021-12-30 23:42:19.222732    [Search Word not found]    40000
+2021-12-30 23:42:19.223730    [Search conducted within Document]    ['40000']
+2021-12-30 23:42:19.223730    [Search Word not found in document]    40000
+2021-12-30 23:42:19.224729    [Search conducted within Document]    ['40000']
+2021-12-30 23:42:19.224729    [Search Word not found in document]    40000
+2021-12-31 11:36:24.294691    [Search Conducted]    40000
+2021-12-31 11:36:24.369260    [Search conducted]    ['40000']
+2021-12-31 11:36:24.371109    [Search Word not found]    40000
+2021-12-31 11:36:36.250875    [Search Conducted]    can I fly passengers
+2021-12-31 11:36:36.257617    [Search conducted]    ['can', 'i', 'fly', 'passenger']
+2021-12-31 11:36:36.257617    [Search Word not found]    can
+2021-12-31 11:36:36.267942    [Search Word not found]    i
+2021-12-31 11:36:36.268941    [Search conducted within Document]    ['can', 'i', 'fly', 'passenger']
+2021-12-31 11:36:36.268941    [Search Word not found in document]    can
+2021-12-31 11:36:36.269940    [Search Word not found in document]    i
+2021-12-31 11:36:36.270933    [Search conducted within Document]    ['can', 'i', 'fly', 'passenger']
+2021-12-31 11:36:36.271932    [Search Word not found in document]    can
+2021-12-31 11:36:36.271932    [Search Word not found in document]    i
+2021-12-31 16:45:13.118163    [Search Conducted]    flying passengers
+2021-12-31 16:45:13.126694    [Search conducted]    ['fly', 'passenger']
+2021-12-31 16:45:13.132221    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-31 16:45:13.134215    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-31 17:16:07.469981    [Search Conducted]    flying passengers
+2021-12-31 17:16:07.479485    [Search conducted]    ['fly', 'passenger']
+2021-12-31 17:16:07.485432    [Search conducted within Document]    ['fly', 'passenger']
+2021-12-31 17:16:07.487605    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 16:45:18.301722    [Search Conducted]    flying passengers
+2022-01-01 16:45:18.313937    [Search conducted]    ['fly', 'passenger']
+2022-01-01 16:45:18.314936    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 16:45:18.316984    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 16:54:46.751352    [Search Conducted]    flying passengers
+2022-01-01 16:54:46.762971    [Search conducted]    ['fly', 'passenger']
+2022-01-01 16:54:46.763764    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 16:54:46.765179    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 20:23:18.132853    [Search Conducted]    flying passengers
+2022-01-01 20:23:18.147845    [Search conducted]    ['fly', 'passenger']
+2022-01-01 20:23:18.148963    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 20:23:18.149975    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-01 21:52:47.846001    [Search Conducted]    jsp 800
+2022-01-01 21:52:47.851836    [Search conducted]    ['jsp', '800']
+2022-01-01 21:52:47.859127    [Search conducted within Document]    ['jsp', '800']
+2022-01-01 21:52:47.861134    [Search conducted within Document]    ['jsp', '800']
+2022-01-02 08:07:48.930068    [Search Conducted]    JSP 800
+2022-01-02 08:07:49.010191    [Search conducted]    ['jsp', '800']
+2022-01-02 08:07:49.011165    [Search conducted within Document]    ['jsp', '800']
+2022-01-02 08:07:49.012428    [Search conducted within Document]    ['jsp', '800']
+2022-01-02 08:07:56.018223    [Search Conducted]    JSP800
+2022-01-02 08:07:56.022591    [Search conducted]    ['jsp800']
+2022-01-02 08:07:56.022591    [Search Word not found]    jsp800
+2022-01-02 08:08:34.782153    [Search Conducted]    
+2022-01-02 08:08:34.786411    [Search conducted]    []
+2022-01-02 08:14:56.849718    [Search Conducted]    flying passengers
+2022-01-02 08:14:56.872214    [Search conducted]    ['fly', 'passenger']
+2022-01-02 08:14:56.880460    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-02 08:14:56.881457    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-02 08:15:11.784829    [Search Conducted]    JSP800
+2022-01-02 08:15:11.790841    [Search conducted]    ['jsp', '800']
+2022-01-02 08:15:11.796349    [Search conducted within Document]    ['jsp', '800']
+2022-01-02 08:15:11.796349    [Search conducted within Document]    ['jsp', '800']
+2022-01-02 08:15:29.241029    [Search Conducted]    1234RA2340
+2022-01-02 08:15:29.249362    [Search conducted]    ['1234', 'ra', '2340']
+2022-01-02 08:15:29.249362    [Search Word not found]    1234
+2022-01-02 08:15:29.252531    [Search conducted within Document]    ['1234', 'ra', '2340']
+2022-01-02 08:15:29.253528    [Search Word not found in document]    1234
+2022-01-02 08:15:29.254375    [Search conducted within Document]    ['1234', 'ra', '2340']
+2022-01-02 08:15:29.254375    [Search Word not found in document]    1234
+2022-01-02 08:15:43.867053    [Search Conducted]    RA2340
+2022-01-02 08:15:43.873415    [Search conducted]    ['ra', '2340']
+2022-01-02 08:15:43.878723    [Search conducted within Document]    ['ra', '2340']
+2022-01-02 08:15:43.878723    [Search conducted within Document]    ['ra', '2340']
+2022-01-02 08:15:51.739491    [Search Conducted]    RA2220
+2022-01-02 08:15:51.745549    [Search conducted]    ['ra', '2220']
+2022-01-02 08:15:51.745549    [Search conducted within Document]    ['ra', '2220']
+2022-01-02 08:15:51.749456    [Search Word not found in document]    ra
+2022-01-02 08:15:51.750458    [Search conducted within Document]    ['ra', '2220']
+2022-01-02 08:15:51.750458    [Search Word not found in document]    2220
+2022-01-02 08:15:56.697863    [Search Conducted]    RA 2220
+2022-01-02 08:15:56.711885    [Search conducted]    ['2220']
+2022-01-02 08:15:56.714072    [Search conducted within Document]    ['2220']
+2022-01-02 08:15:56.714072    [Search conducted within Document]    ['2220']

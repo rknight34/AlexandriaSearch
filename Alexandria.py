@@ -7,7 +7,7 @@ from log import addLog
 
 class Document:
     """myArray - rows are unique words, columns are 'documents'"""
-    def __init__(self,docName, initialBoWDict):
+    def __init__(self, docName, initialBoWDict):
 
         self.numPages = 1
         #doc name (could be used for path)
@@ -113,13 +113,14 @@ class Document:
 
 class DocumentCollection:
     """container for multiple 'Document' objects and wrap around functionality"""
-    def __init__(self,initialDoc):
-        self.myDocs = [initialDoc]
+    def __init__(self, docList):
+        """pass list of Document objects to initialise - will accept a list of one"""
+        self.myDocs = [docList[0]]
         #used to provide each unique word an index
         self.masterDict = {}
 
         #reqeusts dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
-        tempDict = initialDoc.getWordFreqTotalPairs()
+        tempDict = docList[0].getWordFreqTotalPairs()
         tempFreqList = []
 
         for word in tempDict:
@@ -128,10 +129,14 @@ class DocumentCollection:
 
         self.myArray = np.array([tempFreqList],dtype=np.float_).T
 
+        for doc in docList[1:]:
+            self.addDoc(doc, updateTFID=False)
+
         # make sure the TFID Array is initialised for first doc entry
         self.updateTFIDArray()
 
-    def addDoc(self,doc):
+    def addDoc(self, doc, updateTFID = True):
+        """pass 'Document' object"""
         self.myDocs.append(doc)
 
         # requests dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
@@ -156,7 +161,8 @@ class DocumentCollection:
                 self.masterDict[word] = len(self.masterDict)
 
         #make sure the TFID Array is updated for new doc
-        self.updateTFIDArray()
+        if updateTFID:
+            self.updateTFIDArray()
 
     def updateTFIDArray(self):
         # adjusted raw freq array used for conducting searches

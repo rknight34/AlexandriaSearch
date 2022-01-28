@@ -42,6 +42,9 @@ def cleanText(text):
     # remove punctuations (commented out as it causes confusion with "didn't" for example)
     #text = re.sub(r'[^\w\s]', ' ', text)
 
+    #remove commas - they provide no added benefit and confuse processing of large numbers
+    text = re.sub(",","",text)
+
     # remove brackets as they cause confusion with NLP processor - might have to consider this is future for acronym handling
     text = re.sub(r"[\([{})\]]", " ", text)
 
@@ -59,30 +62,60 @@ def NLPcreateBagOfWords(doc):
 
     for token in doc:
 
-        if (not token.is_stop and len(token.text) > 2 and not token.is_digit):
+        #discard token if a 'STOP WORD' or length less than 3 characters as not deemed important for searching
+        if (not token.is_stop
+                and len(token.text) > 2):
 
-            word = token.lemma_.lower()
-            #word = word.lower()
+            #does the token contain both digits and letters?
+            if ('d' in token.shape_
+                and ('X' in token.shape_ or 'x' in token.shape_)):
 
-            if word in BOWDict:
-                BOWDict[word] += 1
+                #split token into list of letter only and digit only 'words'
+                listWords = handleAlphaNumericToken(token)
+
+                #add to dictionary for return (increment if existing or create new if not
+                for word in listWords:
+                    if word in BOWDict:
+                        BOWDict[word] += 1
+                    else:
+                        BOWDict[word] = 1
             else:
-                BOWDict[word] = 1
+
+                #lower case and lemmatise
+                word = token.lemma_.lower()
+
+                if word in BOWDict:
+                    BOWDict[word] += 1
+                else:
+                    BOWDict[word] = 1
 
     return BOWDict
 
-def NLPcreateBagOfNumbers(doc):
-    """returns dictionary of lemmatised bag of words 'word : frequency' pairs having removed stop words, numbers and tokens length 2 or below"""
-    BOWDict = {}
+def handleAlphaNumericToken(token):
 
-    for token in doc:
-        if (token.is_digit):
-            if token.text in BOWDict:
-                BOWDict[token.text] += 1
-            else:
-                BOWDict[token.text] = 1
+    text = token.lower_
+    textList = list(text)
 
-    return BOWDict
+    if textList[0].isdigit():
+        isCurrentNum = True
+    else:
+        isCurrentNum = False
+
+    for i in range(1,len(textList)):
+        if textList[i].isdigit() or textList[i] == ".":
+            if not isCurrentNum:
+                textList[i] = " " + textList[i]
+                isCurrentNum = True
+        else:
+            if isCurrentNum:
+                textList[i] = " " + textList[i]
+                isCurrentNum = False
+
+    text = "".join(textList)
+    listTokens = text.split()
+
+
+    return listTokens
 
 def processDocs(nlp):
     """Converts all files with '.txt' or '.pdf' extension in 'TestDocs' folder to JSON formatted Bag of Word dictionaries in 'Processed' folder (_BoW files)"""
@@ -91,19 +124,21 @@ def processDocs(nlp):
 
             #open .txt file and read, clean and correct text then create Bag of Words (Dictionary)
             if item.name[-4:] == ".txt":
-                print("Processing: ", item.name, "....")
-                myfile = open(r"TestDocs/" + item.name, encoding='utf-8')
-                txt = myfile.read()
-                doc = nlp(cleanText(txt))
-                NLPBoW = NLPcreateBagOfWords(doc)
-                NLPBoN = NLPcreateBagOfNumbers(doc)
+                print("F* you, I'm not handling .txt files now")
+
+                #print("Processing: ", item.name, "....")
+                #myfile = open(r"TestDocs/" + item.name, encoding='utf-8')
+                #txt = myfile.read()
+                #doc = nlp(cleanText(txt))
+                #NLPBoW = NLPcreateBagOfWords(doc)
+                #NLPBoN = NLPcreateBagOfNumbers(doc)
 
                 #save BoW as a _BoW file in JSON format
-                saveFile = open(r"Processed/" + item.name[0:-4] + "_BoW", "w")
-                json.dump((NLPBoW,NLPBoN), saveFile)
+                #saveFile = open(r"Processed/" + item.name[0:-4] + "_BoW.json", "w")
+                #json.dump((NLPBoW,NLPBoN), saveFile)
 
-                myfile.close()
-                saveFile.close()
+                #myfile.close()
+                #saveFile.close()
 
             # open .pdf file and read, clean and correct text then create Bag of Words (Dictionary)
             elif item.name[-4:] == ".pdf":
@@ -112,22 +147,22 @@ def processDocs(nlp):
                 txtList = extractTextPDF("TestDocs/" + item.name)
                 BoWList = []
 
-                for i in range(len(txtList)):
-                    doc = nlp(cleanText(txtList[i]))
+                for page in txtList:
+                    doc = nlp(cleanText(page))
                     NLPBoW = NLPcreateBagOfWords(doc)
-                    NLPBoN = NLPcreateBagOfNumbers(doc)
 
                     #add each page (BoW, BoN tuple) to List for saving to file later
-                    BoWList.append((NLPBoW,NLPBoN))
+                    BoWList.append(NLPBoW)
 
                 #save BoWList as a _BoW file in JSON format
-                saveFile = open(r"Processed/" + item.name[0:-4], "w")
+                saveFile = open(r"Processed/" + item.name[0:-4] + "_BoW.json", "w")
                 json.dump(BoWList, saveFile)
                 saveFile.close()
 
             else:
                 print("In function 'processDocs' -",item.name, "not a .txt or .pdf")
 
+    print("Processing Complete")
 
 def createLibrary():
 
@@ -138,16 +173,14 @@ def createLibrary():
             data = json.load(f)
             f.close()
 
-            doc = Document(item.name, data[0][0])
+            doc = Document(item.name[:-9], data[0])
             for page in data[1:]:
-                #page[1] here would be the dictionary of numbers from the document.
-                doc.addPage(page[0])
+
+                doc.addPage(page)
 
             docList.append(doc)
 
-            library = DocumentCollection(docList[0])
-            for doc in docList[1:]:
-                library.addDoc(doc)
+        library = DocumentCollection(docList)
 
     return library
 
@@ -156,8 +189,26 @@ def processInput(text, nlp):
     addLog("Search Conducted", text )
     searchWords = []
     NLPtext = nlp(text)
+
     for token in NLPtext:
-        searchWords.append(token.lemma_.lower())
+        if (not token.is_stop
+                and len(token.text) > 2):
+
+            # does the token contain both digits and letters?
+            if ('d' in token.shape_
+                    and ('X' in token.shape_ or 'x' in token.shape_)):
+
+                # split token into list of letter only and digit only 'words'
+                listWords = handleAlphaNumericToken(token)
+
+                searchWords += listWords
+
+            else:
+
+                # lower case and lemmatise
+                word = token.lemma_.lower()
+
+                searchWords.append(word)
 
     return searchWords
 
