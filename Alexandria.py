@@ -1,9 +1,250 @@
 """Contains 'Document' and 'DocumentCollection' classes for Alexandria core search functions"""
 
+import json
+import re
+import pdfplumber
+import os
+import pickle
 import numpy as np
 import math
 from log import addLog
+from wordcloud import WordCloud
+from PIL import Image
 
+#from Util import *
+
+class Alexandria:
+    """Container class for DocumentCollection to hold nlp model outside of library and handle external functionality"""
+    def __init__(self, nlp):
+        #umbrella nlp model for text processing across package
+        self.nlp = nlp
+        self.library = None
+
+    def processDocs(self, path):
+        """Converts all files with '.txt' or '.pdf' extension in 'TestDocs' folder to JSON formatted Bag of Word dictionaries in 'Processed' folder (_BoW files)"""
+        with os.scandir(path) as items:
+            for item in items:
+
+                # open .txt file and read, clean and correct text then create Bag of Words (Dictionary)
+                if item.name[-4:] == ".txt":
+                    print("F* you, I'm not handling .txt files now")
+
+                    # print("Processing: ", item.name, "....")
+                    # myfile = open(r"TestDocs/" + item.name, encoding='utf-8')
+                    # txt = myfile.read()
+                    # doc = nlp(cleanText(txt))
+                    # NLPBoW = NLPcreateBagOfWords(doc)
+                    # NLPBoN = NLPcreateBagOfNumbers(doc)
+
+                    # save BoW as a _BoW file in JSON format
+                    # saveFile = open(r"Processed/" + item.name[0:-4] + "_BoW.json", "w")
+                    # json.dump((NLPBoW,NLPBoN), saveFile)
+
+                    # myfile.close()
+                    # saveFile.close()
+
+                # open .pdf file and read, clean and correct text then create Bag of Words (Dictionary)
+                elif item.name[-4:] == ".pdf":
+                    print("Processing: ", item.name, "....")
+
+                    txtList = self.extractTextPDF(path + "/" + item.name)
+                    BoWList = []
+
+                    for page in txtList:
+                        doc = self.nlp(self.cleanText(page))
+                        NLPBoW = self.NLPcreateBagOfWords(doc)
+
+                        # add each page (BoW, BoN tuple) to List for saving to file later
+                        BoWList.append(NLPBoW)
+
+                    # save BoWList as a _BoW file in JSON format
+                    saveFile = open(r"Processed/" + item.name[0:-4] + "_BoW.json", "w")
+                    json.dump(BoWList, saveFile)
+                    saveFile.close()
+
+                else:
+                    print("In function 'processDocs' -", item.name, "not a .txt or .pdf")
+
+        print("Processing Complete")
+
+    def extractTextPDF(self, pdf_path):
+        """takes pdf_path (from root) and returns list of (pdf) page by page raw text"""
+        pagesOfText = []
+
+        with pdfplumber.open(pdf_path) as pdf:
+            for page in pdf.pages:
+                pagesOfText.append(page.extract_text())
+
+        return pagesOfText
+
+    def cleanText(self, text):
+
+        # remove single quotes (commented out for now as leads to "didn't" becoming "didnt" which confuses spacy/nlp)
+        # text = re.sub('\'', '', text)
+
+        # remove unwanted lines starting from special charcters
+        text = re.sub(r'\n: \'\'.*', '', text)
+        text = re.sub(r'\n!.*', '', text)
+        text = re.sub(r'^:\'\'.*', '', text)
+
+        # remove non-breaking new line characters
+        text = re.sub(r'\n', ' ', text)
+
+        # remove digits and words containing digits (commented out as I want to process digits)
+        # text = re.sub('\w*\d\w*', '', text)
+
+        # remove punctuations (commented out as it causes confusion with "didn't" for example)
+        # text = re.sub(r'[^\w\s]', ' ', text)
+
+        # remove commas - they provide no added benefit and confuse processing of large numbers
+        text = re.sub(",", "", text)
+
+        # remove brackets as they cause confusion with NLP processor - might have to consider this is future for acronym handling
+        text = re.sub(r"[\([{})\]]", " ", text)
+
+        # replace extra spaces with single space
+        text = re.sub(' +', ' ', text)
+
+        # lowercase - removed from here as wish to preserve original text for Acronym handling later
+        # text = text.lower()
+
+        return text
+
+    def NLPcreateBagOfWords(self, doc):
+        """returns dictionary of lemmatised bag of words 'word : frequency' pairs having removed stop words, numbers and tokens length 2 or below"""
+        BOWDict = {}
+
+        for token in doc:
+
+            # discard token if a 'STOP WORD' or length less than 3 characters as not deemed important for searching
+            if (not token.is_stop
+                    and len(token.text) > 2):
+
+                # does the token contain both digits and letters?
+                if ('d' in token.shape_
+                        and ('X' in token.shape_ or 'x' in token.shape_)):
+
+                    # split token into list of letter only and digit only 'words'
+                    listWords = self.handleAlphaNumericToken(token)
+
+                    # add to dictionary for return (increment if existing or create new if not
+                    for word in listWords:
+                        if word in BOWDict:
+                            BOWDict[word] += 1
+                        else:
+                            BOWDict[word] = 1
+                else:
+
+                    # lower case and lemmatise
+                    word = (token.lemma_).lower()
+
+                    if word in BOWDict:
+                        BOWDict[word] += 1
+                    else:
+                        BOWDict[word] = 1
+
+        return BOWDict
+
+    def handleAlphaNumericToken(self, token):
+        """token = spacy token confirmed as alphanumeric, returns list of separated numbers and words (char only)"""
+
+        # create lower case string
+        text = token.lower_
+
+        # split string into list of characters
+        textList = list(text)
+
+        # set isCurrentNum flag based on first character
+        if textList[0].isdigit():
+            isCurrentNum = True
+        else:
+            isCurrentNum = False
+
+        # cycle through characters and add space on transisiton from numeric to char (or vice versa)
+        for i in range(1, len(textList)):
+            if textList[i].isdigit() or textList[i] == ".":
+                if not isCurrentNum:
+                    textList[i] = " " + textList[i]
+                    isCurrentNum = True
+            else:
+                if isCurrentNum:
+                    textList[i] = " " + textList[i]
+                    isCurrentNum = False
+
+        # turn list into string
+        text = "".join(textList)
+
+        # tokenise string and create list of strings (lemmatised)
+        doc = self.nlp(text)
+        listWords = []
+
+        for token in doc:
+            # lower case and lemmatise
+            word = (token.lemma_).lower()
+            listWords.append(word)
+
+        return listWords
+
+    def loadLibraryFromPickle(self,path):
+        """loads self.library (a DocumentCollection object) from pickle file at path. Returns True if successful, False if not"""
+        try:
+            file = open(path, 'rb')
+            self.library = pickle.load(file)
+            file.close()
+            return True
+        except:
+            return False
+
+    def saveLibraryToPickle(self, path):
+        if self.library is not None:
+            self.library.pickleToFile(path)
+        else:
+            print ("No library to save to file (in 'Alexandria.saveLibraryToPickle')")
+
+    def createLibrary(self):
+
+        docList = []
+        with os.scandir("Processed") as items:
+            for item in items:
+                f = open(r"Processed/" + item.name, "r")
+                data = json.load(f)
+                f.close()
+
+                doc = Document(item.name[:-9], data[0])
+                for page in data[1:]:
+                    doc.addPage(page)
+
+                docList.append(doc)
+
+            self.library = DocumentCollection(docList)
+
+    def processInput(self, text):
+        """take raw text (text) and process to output list of lemmatised and lower case words"""
+        addLog("Search Conducted", text)
+        searchWords = []
+        NLPtext = self.nlp(text)
+
+        for token in NLPtext:
+            if (not token.is_stop
+                    and len(token.text) > 2):
+
+                # does the token contain both digits and letters?
+                if ('d' in token.shape_
+                        and ('X' in token.shape_ or 'x' in token.shape_)):
+
+                    # split token into list of letter only and digit only 'words'
+                    listWords = self.handleAlphaNumericToken(token)
+
+                    searchWords += listWords
+
+                else:
+
+                    # lower case and lemmatise
+                    word = token.lemma_.lower()
+
+                    searchWords.append(word)
+
+        return searchWords
 
 class Document:
     """myArray - rows are unique words, columns are 'documents'"""
@@ -100,8 +341,9 @@ class Document:
 
         return sortedRow
 
-    def returnTextStringOfUniqueWordsFrequency(self):
-
+    def returnTextStringOfUniqueWordsFrequency(self) -> str:
+        """combines all unique words : frequency into a string (including multiple entries of same word.
+        For use by word cloud"""
         text = ""
         dict = self.getWordFreqTotalPairs()
         for word in dict:
@@ -110,6 +352,21 @@ class Document:
 
         return text
 
+    def returnWordcloud(self):
+        """checks for jpg in 'Processed' folder. Creates wordcloud if not existant
+        Returns Pillow Image"""
+
+        filepath = r"Processed/" + self.myName + ".jpg"
+        if os.path.exists(filepath):
+            return Image.open(filepath)
+
+        else:
+            wordcloud = WordCloud(width=3000, height=2000, random_state=1,
+                              collocations=False, colormap="Blues").generate(
+                self.returnTextStringOfUniqueWordsFrequency())
+
+            wordcloud.to_file(filepath)
+            return Image.open(filepath)
 
 class DocumentCollection:
     """container for multiple 'Document' objects and wrap around functionality"""
@@ -119,7 +376,7 @@ class DocumentCollection:
         #used to provide each unique word an index
         self.masterDict = {}
 
-        #reqeusts dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
+        #requests dict from doc in form {uniqueWord1 : total freq, uniqueWord2 : total freq...}
         tempDict = docList[0].getWordFreqTotalPairs()
         tempFreqList = []
 
@@ -235,3 +492,9 @@ class DocumentCollection:
         myList.sort(key=lambda i: i[1], reverse=True)
 
         return myList
+
+    def pickleToFile(self, path):
+
+        libraryFile = open(path, 'wb')
+        pickle.dump(self, libraryFile)
+        libraryFile.close()

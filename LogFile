@@ -188,3 +188,110 @@
 2022-01-02 08:15:56.711885    [Search conducted]    ['2220']
 2022-01-02 08:15:56.714072    [Search conducted within Document]    ['2220']
 2022-01-02 08:15:56.714072    [Search conducted within Document]    ['2220']
+2022-01-28 17:57:23.585445    [Search Conducted]    flying passengers
+2022-01-28 17:57:23.644580    [Search conducted]    ['fly', 'passenger']
+2022-01-28 17:57:23.650950    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-28 17:57:23.652969    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-28 21:50:33.272690    [Search Conducted]    flying passesngers
+2022-01-28 21:50:33.276735    [Search conducted]    ['fly', 'passesnger']
+2022-01-28 21:50:33.276735    [Search Word not found]    passesnger
+2022-01-28 21:50:33.284904    [Search conducted within Document]    ['fly', 'passesnger']
+2022-01-28 21:50:33.284904    [Search Word not found in document]    passesnger
+2022-01-28 21:50:33.285901    [Search conducted within Document]    ['fly', 'passesnger']
+2022-01-28 21:50:33.285901    [Search Word not found in document]    passesnger
+2022-01-28 21:53:58.728130    [Search Conducted]    passenger
+2022-01-28 21:53:58.729829    [Search conducted]    ['passenger']
+2022-01-28 21:53:58.737689    [Search conducted within Document]    ['passenger']
+2022-01-28 21:53:58.737913    [Search conducted within Document]    ['passenger']
+2022-01-28 21:54:04.960368    [Search Conducted]    flying passenger
+2022-01-28 21:54:04.963181    [Search conducted]    ['fly', 'passenger']
+2022-01-28 21:54:04.963181    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-28 21:54:04.969544    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-28 21:55:10.547590    [Search Conducted]    integrated
+2022-01-28 21:55:10.552811    [Search conducted]    ['integrate']
+2022-01-28 21:55:10.560228    [Search conducted within Document]    ['integrate']
+2022-01-28 21:55:10.560228    [Search conducted within Document]    ['integrate']
+2022-01-28 21:55:44.720264    [Search Conducted]    passengers
+2022-01-28 21:55:44.724830    [Search conducted]    ['passenger']
+2022-01-28 21:55:44.724830    [Search conducted within Document]    ['passenger']
+2022-01-28 21:55:44.730030    [Search conducted within Document]    ['passenger']
+2022-01-28 21:56:34.195128    [Search Conducted]    passenger
+2022-01-28 21:56:34.204286    [Search conducted]    ['passenger']
+2022-01-28 21:56:34.207251    [Search conducted within Document]    ['passenger']
+2022-01-28 21:56:34.207251    [Search conducted within Document]    ['passenger']
+2022-01-28 21:56:37.089161    [Search Conducted]    passengers
+2022-01-28 21:56:37.092063    [Search conducted]    ['passenger']
+2022-01-28 21:56:37.099788    [Search conducted within Document]    ['passenger']
+2022-01-28 21:56:37.099788    [Search conducted within Document]    ['passenger']
+2022-01-28 22:09:09.400896    [Search Conducted]    flyinh
+2022-01-28 22:09:09.407737    [Search conducted]    ['flyinh']
+2022-01-28 22:09:09.407737    [Search Word not found]    flyinh
+2022-01-29 08:46:58.327868    [Search Conducted]    flying passengers
+2022-01-29 08:50:34.110953    [Search Conducted]    flying passengers
+2022-01-29 08:50:34.209238    [Search conducted]    ['fly', 'passenger']
+2022-01-29 09:52:14.989944    [Search Conducted]    flying passengers
+2022-01-29 09:52:15.142466    [Search conducted]    ['fly', 'passenger']
+2022-01-29 09:52:15.146977    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-29 09:52:15.146977    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-29 15:32:06.444036    [Search Conducted]    flying passengers
+2022-01-29 15:32:06.522147    [Search conducted]    ['fly', 'passenger']
+2022-01-29 15:32:06.522147    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-29 15:32:06.522147    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 07:59:46.493034    [Search Conducted]    flying passengers
+2022-01-30 07:59:46.598322    [Search conducted]    ['fly', 'passenger']
+2022-01-30 07:59:46.603943    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 07:59:46.607136    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 08:32:42.854841    [Search Conducted]    flying passengers
+2022-01-30 08:32:42.956711    [Search conducted]    ['fly', 'passenger']
+2022-01-30 08:32:42.959496    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 08:32:42.962678    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 08:40:33.571306    [Search Conducted]    flying passengers
+2022-01-30 08:40:34.031336    [Search conducted]    ['fly', 'passenger']
+2022-01-30 08:40:34.033568    [Search conducted within Document]    ['fly', 'passenger']
+2022-01-30 08:40:34.035528    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-02 23:56:54.799961    [Search Conducted]    flying passengers
+2022-02-02 23:56:54.936278    [Search conducted]    ['fly', 'passenger']
+2022-02-03 00:05:39.728568    [Search Conducted]    flying passengers
+2022-02-03 00:05:39.744188    [Search conducted]    ['fly', 'passenger']
+2022-02-03 00:05:39.744188    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-03 00:05:39.744188    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-03 00:09:17.670441    [Search Conducted]    flying passengers
+2022-02-03 00:09:17.688101    [Search conducted]    ['fly', 'passenger']
+2022-02-03 00:09:17.688101    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-03 00:09:17.688101    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-03 07:14:08.276016    [Search Conducted]    flying passengers
+2022-02-03 07:14:08.322880    [Search conducted]    ['fly', 'passenger']
+2022-02-03 07:14:08.322880    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-03 07:14:08.322880    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-04 11:30:39.979001    [Search Conducted]    flying passengers
+2022-02-04 11:30:40.063716    [Search conducted]    ['fly', 'passenger']
+2022-02-04 11:30:40.064717    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-04 11:30:40.066708    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:11:42.085096    [Search Conducted]    flying passengers
+2022-02-06 08:11:42.149296    [Search conducted]    ['fly', 'passenger']
+2022-02-06 08:11:42.156285    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:11:42.157282    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:23:27.685504    [Search Conducted]    flying passengers
+2022-02-06 08:23:27.689097    [Search conducted]    ['fly', 'passenger']
+2022-02-06 08:23:27.689097    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:23:27.697580    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:24:12.657794    [Search Conducted]    flying passengers
+2022-02-06 08:24:12.668189    [Search conducted]    ['fly', 'passenger']
+2022-02-06 08:24:12.669273    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:24:12.670272    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:33:07.848531    [Search Conducted]    flying passengers
+2022-02-06 08:33:07.888327    [Search conducted]    ['fly', 'passenger']
+2022-02-06 08:33:07.896565    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:33:07.897581    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:33:35.236498    [Search Conducted]    flying passengers
+2022-02-06 08:33:35.250336    [Search conducted]    ['fly', 'passenger']
+2022-02-06 08:33:35.251702    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:33:35.251702    [Search conducted within Document]    ['fly', 'passenger']
+2022-02-06 08:37:54.377666    [Search Conducted]    passengers
+2022-02-06 08:37:54.386860    [Search conducted]    ['passenger']
+2022-02-06 08:37:54.393035    [Search conducted within Document]    ['passenger']
+2022-02-06 08:37:54.393035    [Search conducted within Document]    ['passenger']
+2022-02-06 08:45:37.433098    [Search Conducted]    passengers
+2022-02-06 08:45:37.496039    [Search conducted]    ['passenger']
+2022-02-06 08:45:37.504469    [Search conducted within Document]    ['passenger']
+2022-02-06 08:45:37.505467    [Search conducted within Document]    ['passenger']
