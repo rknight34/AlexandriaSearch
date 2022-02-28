@@ -3,6 +3,11 @@ import time
 import pickle
 import PySimpleGUI as sg
 import io
+import logging
+import datetime
+
+logging.basicConfig(filename='Alex.log', level=logging.DEBUG)
+logging.info(f"Started - {datetime.datetime.now()}")
 
 # requires following in terminal
 # python -m spacy download en_core_web_lg
@@ -38,6 +43,24 @@ def displayImage(title,image):
     window["-IMAGE-"].update(data=bio.getvalue())
 
     return window
+
+def yesNoBox():
+    layout = [[sg.Button('Yes',key='_Yes_'),sg.Button('No',key='_No_')]]
+    window = sg.Window("Are you sure?", layout, finalize=True)
+
+    while True:
+        event, values = window.read()
+        # See if user wants to quit or window was closed
+        if event == sg.WINDOW_CLOSED or event == 'Quit':
+            break
+
+        if event == '_Yes_':
+            window.close()
+            return True
+
+        if event == '_No_':
+            window.close()
+            return False
 
 if __name__ == '__main__':
 
@@ -133,12 +156,14 @@ if __name__ == '__main__':
                 displayImage(doc2.myName + " Wordcloud", doc2.returnWordcloud())
 
         if event == '_Process_':
-            #take all documents in 'TestDocs' and pre-process into 'Processed' folder
-            Alex.processDocs("TestDocs")
 
-            #need to update the library and save it to pickle file for later access
-            Alex.createLibrary()
-            Alex.saveLibraryToPickle("library_pickled")
+            if yesNoBox():
+                #take all documents in 'TestDocs' and pre-process into 'Processed' folder
+                Alex.processDocs("TestDocs")
+
+                #need to update the library and save it to pickle file for later access
+                Alex.createLibrary()
+                Alex.saveLibraryToPickle("library_pickled")
 
     # Finish up by removing from the screen
     window.close()

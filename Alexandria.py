@@ -78,6 +78,12 @@ class Alexandria:
         return pagesOfText
 
     def cleanText(self, text):
+        """takes text and cleans it by:
+        -removing unwanted lines
+        -removing commas
+        -removing brackets (need to consider this carefully in future for acronyms)
+        -additional spaces"""
+
 
         # remove single quotes (commented out for now as leads to "didn't" becoming "didnt" which confuses spacy/nlp)
         # text = re.sub('\'', '', text)
